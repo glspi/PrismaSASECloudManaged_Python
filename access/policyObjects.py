@@ -16,9 +16,11 @@ class policyObjects:
 	def paAddressesListAddresses(self, __folder="Shared"):
 		if self.checkTokenStillValid():
 			paAddresses = saseApi.saseApi(self.prismaAccessObject.addressesUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
-			paAddresses.paList(__folder)
+			# paAddresses.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
+		
+		return paAddresses.paList(__folder, False)["data"]
 
 	def paAddressesCreate(self, __addressObject, __folder="Shared"):
 		if self.checkTokenStillValid():
@@ -44,9 +46,11 @@ class policyObjects:
 	def paTagsListTags(self, __folder="Shared"):
 		if self.checkTokenStillValid():
 			paTag = saseApi.saseApi(self.prismaAccessObject.tagsUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
-			paTag.paList(__folder)
+			# paTag.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
+		
+		return paTag.paList(__folder, False)["data"]
 
 	def paTagCreate(self, __tagObject, __folder="Shared"):
 		if self.checkTokenStillValid():
@@ -88,9 +92,11 @@ class policyObjects:
 		"""List all the address groups."""
 		if self.checkTokenStillValid():
 			paAddressGroup = saseApi.saseApi(self.prismaAccessObject.addressGroupsUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
-			paAddressGroup.paList(__folder)
+			# paAddressGroup.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
+		
+		return paAddressGroup.paList(__folder, False)["data"]
 
 	def paAddressGroupsCreate(self, __addressGroupObject, __folder="Shared"):
 		"""Create an address group object"""
@@ -118,9 +124,11 @@ class policyObjects:
 		"""List all Service Objects that are defined."""
 		if self.checkTokenStillValid():
 			paServices = saseApi.saseApi(self.prismaAccessObject.servicesUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
-			paServices.paList(__folder)
+			# paServices.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
+		
+		return paServices.paList(__folder, False)["data"]
 
 	def paServicesCreateService(self, __servicesObject, __folder="Shared"):
 		"""Create an address group object"""
@@ -276,9 +284,11 @@ class policyObjects:
 		"""List all ServiceGroups that are defined."""
 		if self.checkTokenStillValid():
 			paServiceGroups = saseApi.saseApi(self.prismaAccessObject.serviceGroupsUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
-			paServiceGroups.paList(__folder)
+			# paServiceGroups.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
+		
+		return paServiceGroups.paList(__folder, False)["data"]
 
 	def paServiceGroupsCreate(self, __ServiceGroupsObject, __folder="Shared"):
 		"""Create an ServiceGroups object"""
