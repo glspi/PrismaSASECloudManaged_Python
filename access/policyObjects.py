@@ -19,7 +19,7 @@ class policyObjects:
 			# paAddresses.paList(__folder)
 		else:
 			print("Please request new token and create new prismaAccess object.")
-		
+
 		return paAddresses.paList(__folder, False)["data"]
 
 	def paAddressesCreate(self, __addressObject, __folder="Shared"):
