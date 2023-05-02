@@ -13,6 +13,25 @@ class policyObjects:
 		tokenValid = bool(rightNow < self.prismaAccessObject.saseToken['expiresOn'])
 		return tokenValid
 
+
+	def paSecrulesListRules(self, __folder="Shared"):
+		if self.checkTokenStillValid():
+			paSecRules = saseApi.saseApi(self.prismaAccessObject.gpSecRulesUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
+		else:
+			print("Please request new token and create new prismaAccess object.")
+
+		return paSecRules.paList(__folder, False)["data"]
+
+
+	def paUrlProfileListProfiles(self, __folder="Shared"):
+		if self.checkTokenStillValid():
+			paUrlProfiles = saseApi.saseApi(self.prismaAccessObject.gpUrlProfilesUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)
+		else:
+			print("Please request new token and create new prismaAccess object.")
+
+		return paUrlProfiles.paList(__folder, False)["data"]
+
+
 	def paGPAppListApps(self, __folder="Mobile Users"):
 		if self.checkTokenStillValid():
 			paGPApps = saseApi.saseApi(self.prismaAccessObject.gpAppAgentUri, self.prismaAccessObject.saseToken, self.prismaAccessObject.contentType, self.prismaAccessObject.saseAuthHeaders)

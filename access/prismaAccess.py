@@ -32,8 +32,10 @@ class prismaAccess:
 		#self.samlServerProfilesUri = self.saseApi + __configV1 + "saml-server-profiles"
 		#self.tacacsServerProfilesUri = self.saseApi + __configV1 + "tacacs-server-profiles"
 
-		# Global Protect
+		# Other Objects
 		self.gpAppAgentUri = self.saseApi + __configV1 + "mobile-agent/agent-profiles"
+		self.gpSecRulesUri = self.saseApi + __configV1 + "security-rules"
+		self.gpUrlProfilesUri = self.saseApi + __configV1 + "url-access-profiles"
 		# Policy Objects
 		self.addressGroupsUri = self.saseApi + __configV1 + "address-groups"
 		self.addressesUri = self.saseApi + __configV1 + "addresses"
